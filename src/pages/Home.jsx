@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Container, Pokemon, SearchBar } from '../components';
+import { GlobalContext } from '../context/GlobalState';
 
-const Home = () => <h2>Home</h2>;
+const Home = () => {
+  const { pokemon } = useContext(GlobalContext);
+
+  return (
+    <Container>
+      <SearchBar />
+
+      {pokemon ? <Pokemon data={pokemon} /> : null}
+    </Container>
+  );
+};
 
 export default Home;
